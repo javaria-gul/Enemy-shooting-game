@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muzammil Ahmed's Birthday </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #3b3a3d; /* Change background color of the webpage */
+    }
+    h1{
+      font-size: large;
+      color: aliceblue;
+      background: #430a34;
+      margin-top: auto;
+      padding:2px;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      flex: 1;
+    }
+    #slider {
+      max-width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    #slider img, #slider video {
+      
+      max-width: 80vw; /* Set the maximum width to 100% of the container */
+      max-height: 80vh; /* Set the maximum height to 100% of the container */
+      
+    }
+    
+    .quote {
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: aliceblue;
+      background: #430a34;
+
+    }
+    .footer {
+      background-color: #580040; /* Change background color of the footer */
+      color: #ffffff;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div><h1>It's Muzammil Ahmed's Birthday</h1></div>
+    
+    <div id="slider">
+      <img src="image1.png" alt="image1">
+      <img src="image2.png" alt="image2">
+      <img src="image3.jpg" alt="image3">
+      <img src="image4.png" alt="image4">
+      <img src="image5.png" alt="image5">
+      <img src="image7.png" alt="image7">
+      <img src="image6.jpg" alt="image6">
+      
+      <img src="R.jpg" alt="image7">
+      
+    </div>
+    <p class="quote" id="quote"></p>
+  </div>
+  <div class="footer">
+    <p>Designed with ❤️ by Javaria Gul | Muzammil Ahmed's Birthday: April 15, 2024</p>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const quote = document.getElementById('quote');
+    const imagesAndVideos = [
+  { src: 'image1.png', type: 'image', quote: 'You are one of my best Teachers' },
+  { src: 'image2.png', type: 'image', quote: 'we have made unforgettable memories together'},
+  { src: 'image3.jpg', type: 'image', quote: 'All the hard work you did for us' },
+  { src: 'image4.png', type: 'image', quote: 'May Allah give you the happiness' },
+  { src: 'image5.png', type: 'image', quote: 'And all the good things you deserve..' },
+  { src: 'image7.png', type: 'image', quote: 'May he give you all the success..' },
+  { src: 'image6.jpg', type: 'image', quote: 'With heart and respect' },
+  { src: 'R.jpg', type: 'image', quote: '' }
+];
+
+
+    let currentIndex = 0;
+
+    function showSlide() {
+      const media = imagesAndVideos[currentIndex];
+      slider.innerHTML = '';
+      if (media.type === 'image') {
+        const img = document.createElement('img');
+        img.src = media.src;
+        slider.appendChild(img);
+      } else if (media.type === 'video') {
+        const video = document.createElement('video');
+        video.src = media.src;
+        video.autoplay = true;
+        video.controls = true;
+        slider.appendChild(video);
+      }
+      quote.textContent = media.quote;
+      currentIndex = (currentIndex + 1) % imagesAndVideos.length;
+      setTimeout(showSlide, 5000); // Change image every 5 seconds
+    }
+
+    showSlide();
+  </script>
+</body>
+</html>
